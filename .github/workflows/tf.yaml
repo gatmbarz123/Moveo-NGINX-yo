@@ -49,8 +49,10 @@ jobs:
         run: terraform init
         
       - name: Terraform Plan
-        run: |  
-          terraform plan -var-file tf.tfvars
+        run: terraform plan -var-file tf.tfvars
+      
+      - name: Terraform Apply
+        run: terrafrom apply -var-file tf.tfvars
       
 
 
