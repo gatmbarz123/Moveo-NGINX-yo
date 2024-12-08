@@ -75,18 +75,13 @@ resource "aws_instance" "bastion_host"{
     subnet_id   = var.public_subnet
     instance_type   =   var.instance_type
 
-    user_data = <<-EOF
-                apt-get update
-                s
-
-    EOF
     tags = {
     Name = "bastion_host"
   }
 
 
   provisioner "file" {
-    content    = var.private_key
+    content   = var.private_key
     destination = "/home/ubuntu/private-key.pem"  
 
     connection {
