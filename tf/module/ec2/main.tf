@@ -86,7 +86,7 @@ resource "aws_instance" "bastion_host"{
 
 
   provisioner "file" {
-     content      = var.private_key
+    content    = var.private_key
     destination = "/home/ubuntu/private-key.pem"  
 
     connection {
