@@ -62,15 +62,10 @@ resource "aws_security_group" "ngnix_sg" {
 }
 
 
-
-
-
-#------------------------------------------------------------------------ Nginx_private_instance
-#------------------------------------------------------------------------ Bastion_Host_instance_public
-
-
-
-
+#                                                                   ^
+#------------------------------------------------------------------Nginx_private_instance 
+#------------------------------------------------------------------Bastion_Host_instance_public
+#                                                                   v
 
 
 resource "aws_instance" "bastion_host"{
@@ -116,8 +111,6 @@ resource "aws_instance" "bastion_host"{
   }
 
 }
-
-
 
 
 resource "aws_security_group" "bastion_host_sg" {

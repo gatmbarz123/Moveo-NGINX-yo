@@ -8,7 +8,7 @@ resource "aws_lb" "alb-new" {
   enable_deletion_protection = false
 
   tags = {
-    Environment = "polybot-project"
+    Environment = "prod"
   }
 
 }
