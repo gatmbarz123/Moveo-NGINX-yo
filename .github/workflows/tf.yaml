@@ -32,6 +32,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ vars.AWS_REGION }}
           mask-aws-account-id: 'no'
+      
+      - name: Create tfvars file
+        run: |
+          cat > tf.tfvars <<EOF
+          certificate_arn = "${{ secrets.CERTIFICATE_ARN }}"
+          private_key = "${{ secrets.EC2_PRIVATE_KEY }}"
+          instance_type = "${{ vars.INSTANCE_TYPE }}"
+          private_key_name = "${{ vars.PRIVATE_KEY }}"
+          region = "${{ vars.AWS_REGION }}"
+          EOF
 
       - name: Terraform Init 
         run: terraform init
