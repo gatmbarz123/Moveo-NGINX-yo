@@ -52,7 +52,7 @@ jobs:
         run: terraform plan -var-file tf.tfvars
       
       - name: Terraform Apply
-        run: terrafrom apply -var-file tf.tfvars
+        run: terraform apply -var-file tf.tfvars
       
 
 
