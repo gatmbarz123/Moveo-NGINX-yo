@@ -37,7 +37,9 @@ jobs:
         run: |
           cat > tf.tfvars <<EOF
           certificate_arn = "${{ secrets.CERTIFICATE_ARN }}"
-          private_key = "${{ secrets.EC2_PRIVATE_KEY }}"
+          private_key = <<-EOT
+          "${{ secrets.EC2_PRIVATE_KEY }}"
+          EOT
           instance_type = "${{ vars.INSTANCE_TYPE }}"
           private_key_name = "${{ vars.PRIVATE_KEY }}"
           region = "${{ vars.AWS_REGION }}"
