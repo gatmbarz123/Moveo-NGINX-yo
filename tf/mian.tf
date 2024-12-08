@@ -50,7 +50,7 @@ module  ec2{
 module "alb"{
     source  =  "./module/alb"
     public_subnets = module.vpc.public_subnet
-    vpc_id  = module.vpc.vpc_id
+    vpc_id   = module.vpc.vpc_id
     instance_id = module.ec2.instance_id
     record_name = "ngnix.bargutman.click"
     certificate_arn = var.certificate_arn
