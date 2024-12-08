@@ -6,6 +6,7 @@ variable region {
 variable private_key{
   type  = string
 }
+
 variable instance_type{
     type  = string
 }
@@ -16,7 +17,7 @@ variable "certificate_arn" {
 
 }
 
-variable path_to_key{
+variable private_key_name{
   type  = string
   description = "for the bastion host key "
 }

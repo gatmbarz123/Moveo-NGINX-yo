@@ -1,6 +1,6 @@
 resource "aws_instance" "ngnix"{
     ami           = data.aws_ami.ubuntu_ami.id 
-    key_name    =   var.key_pairs
+    key_name    =   var.private_key_name
     vpc_security_group_ids = [aws_security_group.ngnix_sg.id]
     subnet_id   = var.private_subnet
     instance_type   =   var.instance_type
@@ -24,11 +24,11 @@ resource "aws_instance" "ngnix"{
     connection {
       type                = "ssh"
       user                = "ubuntu"
-      private_key         = file(var.path_to_key)
+      private_key         = var.private_key
       host                = aws_instance.ngnix.private_ip
       bastion_host        = aws_instance.bastion_host.public_ip
       bastion_user        = "ubuntu"
-      bastion_private_key = file(var.path_to_key)
+      bastion_private_key = var.private_key
     }
   }
 
@@ -70,7 +70,7 @@ resource "aws_security_group" "ngnix_sg" {
 
 resource "aws_instance" "bastion_host"{
     ami           = data.aws_ami.ubuntu_ami.id 
-    key_name    =   var.key_pairs
+    key_name    =   var.private_key_name
     vpc_security_group_ids = [aws_security_group.bastion_host_sg.id]
     subnet_id   = var.public_subnet
     instance_type   =   var.instance_type
@@ -86,14 +86,14 @@ resource "aws_instance" "bastion_host"{
 
 
   provisioner "file" {
-    source      = var.path_to_key 
+     content      = var.private_key
     destination = "/home/ubuntu/private-key.pem"  
 
     connection {
       type        = "ssh"
       host        = self.public_ip
       user        = "ubuntu"                     
-      private_key = file(var.path_to_key)  
+      private_key = var.private_key
     }
   }
 
@@ -106,7 +106,7 @@ resource "aws_instance" "bastion_host"{
       type        = "ssh"
       host        = self.public_ip
       user        = "ubuntu"
-      private_key = file(var.path_to_key)
+      private_key = var.private_key
     }
   }
 

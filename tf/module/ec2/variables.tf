@@ -3,11 +3,6 @@ variable region {
   description     = "aws-region"
 }
 
-variable key_pairs{
-    type        = string
-  description     = "key_pairs"
-}
-
 variable private_subnet{
     type        = string
   description     = "private_subnet"
@@ -34,7 +29,12 @@ variable alb_sg{
   description = "alb security group id "
 }
 
-variable path_to_key{
+variable private_key_name{
   type  = string
   description = "for the bastion host key "
+}
+
+variable private_key{
+  type  = string
+  description = "the full key for the project"
 }
