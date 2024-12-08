@@ -41,7 +41,7 @@ jobs:
           "${{ secrets.EC2_PRIVATE_KEY }}"
           EOT
           instance_type = "${{ vars.INSTANCE_TYPE }}"
-          private_key_name = "${{ vars.PRIVATE_KEY }}"
+          private_key_name = "${{ vars.PRIVATE_KEY_NAME }}"
           region = "${{ vars.AWS_REGION }}"
           EOF
 

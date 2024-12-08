@@ -32,14 +32,14 @@ module vpc{
 
 module  ec2{
     source  =   "./module/ec2"
-    key_pairs= var.private_key
+    private_key= var.private_key
     instance_type= var.instance_type
     region= var.region
     private_subnet= module.vpc.private_subnet[0]
     public_subnet= module.vpc.public_subnet[0]
     vpc_id= module.vpc.vpc_id
     alb_sg  = module.alb.sg
-    path_to_key= var.path_to_key
+    private_key_name  = var.private_key_name
 }
 
 #                                                                   ^
