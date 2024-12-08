@@ -33,7 +33,7 @@ jobs:
           aws-region: ${{ vars.AWS_REGION }}
           mask-aws-account-id: 'no'
       
-      - name: Create tfvars file
+      - name: Create tfvars  file
         run: |
           cat > tf.tfvars <<EOF
           certificate_arn = "${{ secrets.CERTIFICATE_ARN }}"
