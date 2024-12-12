@@ -13,6 +13,7 @@ resource "aws_lb" "alb-new" {
 
 }
 
+
 resource "aws_lb_target_group" "alb-tg" {
   name     = "tg-alb-telegram"
   port     = 80
