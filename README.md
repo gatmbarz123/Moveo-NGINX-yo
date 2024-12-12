@@ -109,3 +109,6 @@ You have two options to run the infrastructure: locally or automatically through
     - vars.INSTANCE_TYPE
     - vars.PRIVATE_KEY_NAME
     - vars.AWS_REGION
+
+
+**To enter the website copy this link :** https://ngnix.bargutman.click/
