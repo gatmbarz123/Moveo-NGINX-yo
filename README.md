@@ -71,6 +71,9 @@ An optional bonus step was implemented, automating the entire process of deployi
      - `terraform plan -var-file=tf.tfvars`
      - `terraform apply -auto-approve -var-file=tf.tfvars`
 
+
+![][photo]
+
 ---
 
 ## How to Run
@@ -112,3 +115,9 @@ You have two options to run the infrastructure: locally or automatically through
 
 
 **To enter the website copy this link :** https://ngnix.bargutman.click/
+
+
+
+
+
+[photo]: https://github.com/gatmbarz123/NodeFunctions/blob/main/Moveon-ngnix.png
