@@ -1,3 +1,2 @@
 tf/.terraform
-tf/.terraform.lock.hcl
 tf/var.tfvars
